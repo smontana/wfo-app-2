@@ -6,8 +6,9 @@ include ./views/mixins/sections/add_attendance
 include ./views/mixins/sections/add_productivity
 
 include ./views/mixins/sections/add_qpa
-include ./views/mixins/get_qpa_custom_dates_solution_report
-include ./views/mixins/get_qpa_ytd_solution_report
+include ./views/mixins/qpa_mixins/get_qpa_custom_dates_solution_report
+include ./views/mixins/qpa_mixins/get_qpa_ytd_solution_report
+include ./views/mixins/qpa_mixins/qpa_ytd_workgroup
 
 block content
 
@@ -27,5 +28,17 @@ block content
 
     #qpa_sec.app-section
       +add_qpa('QPA')
+
     +get_qpa_custom_dates_solution_report('placeholder')
+
     +get_ytd_qpa_solution_report('placeholder')
+    +qpa_ytd_select_workgroups_by_solution(selection_attribute)
+
+    script.
+      window.$ = window.jQuery = require('jquery');
+      $(document).ready(function(event){
+        $(".attribute-selection").click(function() {
+          var selection_attribute = d.getAttribute("data-selection")
+          return selection_attribute
+        })
+      })

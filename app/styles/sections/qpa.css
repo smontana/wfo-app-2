@@ -10,15 +10,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 3em;
 }
 
 .qpa-reports-container h4 {
   font-size: 24px;
   margin-bottom: 0;
-}
-
-.qpa-ytd-reports-selection {
-
 }
 
 .qpa-card-group {
@@ -77,8 +74,7 @@
 }
 
 .qpa-big-card {
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 100%;
   width: 75%;
   border: 1px solid black;
@@ -87,12 +83,19 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 0.319em;
+  padding-top: 0.2em;
   padding-right: 1.319em;
   background: #fff;
   font-size: 16px;
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.qpa-big-card .qpa-card-content {
+  padding: 0.3819em;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.5s 0.3s cubic-bezier(.55, 0, .1, 1);
 }
 
 .col-spacer {
@@ -102,29 +105,8 @@
 .qpa-timeseries-title {
   font-size: 18px;
   font-weight: 600;
+  margin-top: 0;
 }
-
-
-/*---------------------------------------------*/
-/*---QPA PDF BUTTON---*/
-/*---------------------------------------------*/
-/*#qpa_sec.app-section button {
-  padding: 0;
-  line-height: 1;
-  max-width: 8em;
-  width: 100%;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: .0618em;
-  margin-bottom: 0.382em;
-  margin-left: 1.618em;
-  margin-right: 1.618em;
-  border-radius: .3em;
-  text-shadow: 0 1px white;
-  background-image: linear-gradient(to bottom, #fcfcfc, #f0f0f0);
-  -webkit-box-shadow: inset 0 0 0 1px #fafafa;
-  cursor: pointer;
-}*/
 
 /*---------------------------------------------*/
 /*---QPA YTD REPORTS---*/
@@ -156,7 +138,6 @@
   height: 100%;
   padding-left: 1.619em;
   padding-right: 1.619em;
-  padding-bottom: 1.619em;
   align-items: center;
   justify-content: center;
 }

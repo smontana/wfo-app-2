@@ -98,10 +98,10 @@ mixin add_attendance(title)
 
   script.
     var query_attendance = require('./main-process/db/queries/attendance_queries.js')
-    var sfi_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_sfi.js')
-    var dms_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_dms.js')
-    var rts_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_rts.js')
-    var crm_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_crm.js')
+    var sfi_attendance_js = require('./main-process/db/graph_builders/attendance/gauges/attendance_sfi.js')
+    var dms_attendance_js = require('./main-process/db/graph_builders/attendance/gauges/attendance_dms.js')
+    var rts_attendance_js = require('./main-process/db/graph_builders/attendance/gauges/attendance_rts.js')
+    var crm_attendance_js = require('./main-process/db/graph_builders/attendance/gauges/attendance_crm.js')
 
     var query_to_execute = query_attendance.get_attendance_solution_counts_by_yr
     var graph_builder_procs = [

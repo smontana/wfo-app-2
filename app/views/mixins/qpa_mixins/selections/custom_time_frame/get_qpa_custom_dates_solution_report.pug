@@ -101,8 +101,8 @@ mixin get_qpa_custom_dates_solution_report(placeholder)
       window.$ = window.jQuery = require('jquery');
 
       var query_qpa = require('./main-process/db/queries/qpa_queries.js');
-      var custom_qpa_solution_avgs_gauge_row = require('./main-process/db/graph_builders/qpa/qpa_all_solutions_custom_range_gauge_row.js');
-      var custom_qpa_solution_avgs_bar_graphs = require('./main-process/db/graph_builders/qpa/qpa_all_solutions_custom_range_bar_graphs.js');
+      var custom_qpa_solution_avgs_gauge_row = require('./main-process/db/graph_builders/qpa/gauges/qpa_all_solutions_custom_range_gauge_row.js');
+      var custom_qpa_solution_avgs_bar_graphs = require('./main-process/db/graph_builders/qpa/bar_graphs/qpa_all_solutions_custom_range_bar_graphs.js');
 
       function show_custom_qpa_solution_report(query) {
         var query_to_execute = query

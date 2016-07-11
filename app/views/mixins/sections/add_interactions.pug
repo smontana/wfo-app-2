@@ -16,7 +16,7 @@ mixin add_interactions(title)
 
   script.
     var query_interactions = require('./main-process/db/queries/interaction_queries.js')
-    var sfi_interactions_js = require('./main-process/db/graph_builders/interactions/interactions_sfi.js')
+    var sfi_interactions_js = require('./main-process/db/graph_builders/interactions/timeseries/interactions_sfi.js')
 
     var query_to_execute = query_interactions.call_metrics_by_solution_by_week
     var graph_builder_procs = [

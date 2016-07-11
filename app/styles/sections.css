@@ -18,7 +18,6 @@
 
   /* Hide */
   pointer-events: none;
-  visibility: hidden;
   opacity: 0;
   transform: translateX(-20px);
   transition: visibility 0s .12s linear , opacity .12s ease-in, transform .12s ease-in;
@@ -34,9 +33,10 @@
 span.vert-space {
   display: block;
   margin-top: 0.3em;
-  margin-bottom: 1em;
+  margin-bottom: 0.319em;
   margin-left: auto;
   margin-right: auto;
   border-style: inset;
   border-width: 1px;
 }
+

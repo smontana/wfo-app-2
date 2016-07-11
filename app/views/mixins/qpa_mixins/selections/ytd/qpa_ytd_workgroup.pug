@@ -1,0 +1,30 @@
+mixin qpa_ytd_select_workgroups_by_solution(placeholder)
+
+  #qpa_ytd_select_workgroups_sec.app-section
+    .page-rows
+      h1.text-center QPA Year-to-Date WorkGroup Reports
+      span.vert-space
+
+      .qpa-homepage-header
+        h3.text-center Choose Solution
+
+      .qpa-reports-container
+        .qpa-card-group
+
+          #qpa_ytd_solution_workgroups(data-selection="CD").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            | CD
+
+          #qpa_ytd_solution_workgroups(data-selection="CRM").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            | CRM
+
+          #qpa_ytd_solution_workgroups(data-selection="CSO").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            | CSO
+
+          #qpa_ytd_solution_workgroups(data-selection="DMS").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            | DMS
+
+          #qpa_ytd_solution_workgroups(data-selection="F&I").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            = 'F&I'
+
+          #qpa_ytd_solution_workgroups(data-selection="RTS").qpa-homepage-card.qpa-card-group-card.animate-button.attribute-selection.main-click-el
+            | RTS
