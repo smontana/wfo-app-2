@@ -105,15 +105,13 @@ mixin get_qpa_custom_dates_solution_report(placeholder)
       var custom_qpa_solution_avgs_bar_graphs = require('./main-process/db/graph_builders/qpa/qpa_all_solutions_custom_range_bar_graphs.js');
 
       function show_custom_qpa_solution_report(query) {
+        var query_to_execute = query
+        var graph_builder_procs = [
+                                    custom_qpa_solution_avgs_gauge_row.build_custom_range_solution_avgs_graphs,
+                                    custom_qpa_solution_avgs_bar_graphs.build_qpa_all_solution_avgs_custom_range_bar_chart
+                                  ]
 
-        sql.execute({
-          query: query
-        }).then(function(data) {
-          custom_qpa_solution_avgs_gauge_row.build_custom_range_solution_avgs_graphs(data)
-          custom_qpa_solution_avgs_bar_graphs.build_qpa_all_solution_avgs_custom_range_bar_chart(data)
-        }, function(err) {
-          console.log(err);
-        });
+        execute_and_build_sql(query_to_execute, graph_builder_procs)
       }
 
       $(document).ready(function(event){
@@ -142,6 +140,7 @@ mixin get_qpa_custom_dates_solution_report(placeholder)
           var constructed_query = query_qpa.get_overall_QPA_solution_avg_between_dates + ' ' + "'" + start_date_value + "'" + ', ' + "'" + end_date_value + "'";
 
           show_custom_qpa_solution_report(constructed_query);
+
           $('.qpa-date-selection-container').hide();
           $('.qpa-custom-dates-solution-report').addClass('is-visible');
         });

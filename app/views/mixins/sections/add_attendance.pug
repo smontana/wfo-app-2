@@ -103,27 +103,20 @@ mixin add_attendance(title)
     var rts_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_rts.js')
     var crm_attendance_js = require('./main-process/db/graph_builders/attendance/attendance_crm.js')
 
-    window.onload = sql.execute({
-      query: query_attendance.get_attendance_solution_counts_by_yr
-    }).then(function(data) {
-      //- console.log(data);
+    var query_to_execute = query_attendance.get_attendance_solution_counts_by_yr
+    var graph_builder_procs = [
+                                sfi_attendance_js.build_solution_absence_counts_by_yr_graph,
+                                sfi_attendance_js.build_solution_late_counts_by_yr_graph,
+                                sfi_attendance_js.build_solution_early_counts_by_yr_graph,
+                                dms_attendance_js.build_solution_absence_counts_by_yr_graph,
+                                dms_attendance_js.build_solution_late_counts_by_yr_graph,
+                                dms_attendance_js.build_solution_early_counts_by_yr_graph,
+                                rts_attendance_js.build_solution_absence_counts_by_yr_graph,
+                                rts_attendance_js.build_solution_late_counts_by_yr_graph,
+                                rts_attendance_js.build_solution_early_counts_by_yr_graph,
+                                crm_attendance_js.build_solution_absence_counts_by_yr_graph,
+                                crm_attendance_js.build_solution_late_counts_by_yr_graph,
+                                crm_attendance_js.build_solution_early_counts_by_yr_graph
+                              ]
 
-      sfi_attendance_js.build_solution_absence_counts_by_yr_graph(data)
-      sfi_attendance_js.build_solution_late_counts_by_yr_graph(data)
-      sfi_attendance_js.build_solution_early_counts_by_yr_graph(data)
-
-      dms_attendance_js.build_solution_absence_counts_by_yr_graph(data)
-      dms_attendance_js.build_solution_late_counts_by_yr_graph(data)
-      dms_attendance_js.build_solution_early_counts_by_yr_graph(data)
-
-      rts_attendance_js.build_solution_absence_counts_by_yr_graph(data)
-      rts_attendance_js.build_solution_late_counts_by_yr_graph(data)
-      rts_attendance_js.build_solution_early_counts_by_yr_graph(data)
-
-      crm_attendance_js.build_solution_absence_counts_by_yr_graph(data)
-      crm_attendance_js.build_solution_late_counts_by_yr_graph(data)
-      crm_attendance_js.build_solution_early_counts_by_yr_graph(data)
-
-    }, function(err) {
-      console.log(err);
-    });
+    window.onload = execute_and_build_sql(query_to_execute, graph_builder_procs)
