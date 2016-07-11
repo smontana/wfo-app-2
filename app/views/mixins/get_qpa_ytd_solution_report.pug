@@ -13,26 +13,19 @@ mixin get_ytd_qpa_solution_report(placeholder)
         build_solution_month_over_month_graphs()
 
         function build_solution_yearly_avgs () {
-          sql.execute({
-            query: query_qpa.get_QPA_solution_avg_by_yr
-          }).then(function(data) {
-            //- console.log(data);
-            yearly_qpa_avgs.build_solution_yearly_avg_graphs(data)
-          }, function(err) {
-            console.log(err);
-          });
+          var query_to_execute = query_qpa.get_QPA_solution_avg_by_yr
+          var graph_builder_proc = yearly_qpa_avgs.build_solution_yearly_avg_graphs
+
+          execute_and_build_sql(query_to_execute, graph_builder_proc)
         }
 
         function build_solution_month_over_month_graphs () {
-          sql.execute({
-            query: query_qpa.get_QPA_all_solution_avgs_month_over_month_by_yr
-          }).then(function(data) {
-            //- console.log(data);
-            month_over_month_qpa.build_qpa_all_solution_avgs_month_over_month_timeseries(data)
-            month_over_month_qpa.build_qpa_all_solution_counts_month_over_month_timeseries(data)
-          }, function(err) {
-            console.log(err);
-          });
+          var query_to_execute = query_qpa.get_QPA_all_solution_avgs_month_over_month_by_yr
+          var graph_builder_procs = [
+                                      month_over_month_qpa.build_qpa_all_solution_avgs_month_over_month_timeseries,
+                                      month_over_month_qpa.build_qpa_all_solution_counts_month_over_month_timeseries
+                                    ]
+          execute_and_build_sql(query_to_execute, graph_builder_procs)
         }
       }
 

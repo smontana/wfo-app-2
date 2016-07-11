@@ -1,3 +1,5 @@
+var sql = require('seriate')
+
 function execute_sql_and_build_graph (query_selection, graph_builder_obj) {
   if (Array.isArray(graph_builder_obj)) {
     var sql_procedure = sql.execute({
