@@ -7,8 +7,9 @@ include ./views/mixins/sections/add_productivity
 
 include ./views/mixins/sections/add_qpa
 include ./views/mixins/qpa_mixins/get_qpa_custom_dates_solution_report
+include ./views/mixins/qpa_mixins/get_qpa_custom_dates_team_report
 include ./views/mixins/qpa_mixins/get_qpa_ytd_solution_report
-include ./views/mixins/qpa_mixins/qpa_ytd_workgroup
+
 
 block content
 
@@ -30,4 +31,4 @@ block content
       +add_qpa('QPA')
     +get_qpa_custom_dates_solution_report('placeholder')
     +get_ytd_qpa_solution_report('placeholder')
-    +qpa_ytd_select_workgroups_by_solution('placeholder')
+    +get_qpa_custom_dates_solution_report('placeholder')

@@ -26,7 +26,15 @@ html(lang="en")
 
       script(src='app.js')
       script.
+        window.$ = window.jQuery = require('jquery')
         var execute_and_build_sql = require('./assets/js/execute_sql.js')
+        var global_functions = require('./assets/js/shared_report_objects.js')
+        const Solutions = []
+        const Supervisors = []
+        const Agents = []
+        global_functions.get_all_solutions()
+        global_functions.get_all_supervisors()
+        global_functions.get_all_agents()
 
   body
     .window
@@ -45,3 +53,4 @@ html(lang="en")
       script(type='text/javascript', src='lib/ex-links.js')
       script(type='text/javascript', src='assets/js/date_picker/picker.js')
       script(type='text/javascript', src='assets/js/date_picker/picker.date.js')
+      //- script(type='text/javascript', src='assets/js/shared_report_objects.js')

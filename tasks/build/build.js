@@ -3,6 +3,7 @@
 var pathUtil = require('path')
 var Q = require('q')
 var gulp = require('gulp')
+var data = require('gulp-data')
 var rename = require('gulp-rename')
 var pug = require('gulp-pug')
 var watch = require('gulp-watch')

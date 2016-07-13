@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 3em;
+  padding-bottom: 0;
 }
 
 .qpa-reports-container h4 {
@@ -115,10 +115,6 @@
 .page-rows a {
   display: flex;
   flex-direction: column;
-}
-
-.page-rows a.hint--top.hint--always {
-  margin-top: 4em;
 }
 
 .row.qpa-first-row.flexbox-container,
