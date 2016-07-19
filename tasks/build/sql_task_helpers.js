@@ -1,15 +1,24 @@
+require('dotenv').load()
 var sql = require('seriate')
 var _ = require('lodash')
 var Q = require('q')
+var env = process.env.ENV
+
+// var db_config = {
+//   name: 'default',
+//   user: 'wfo_app_datareader',
+//   password: 'GJ=5eEDYfZab7!RT',
+//   host: '172.16.224.184',
+//   database: 'EmployeeServices'
+// }
 
 var db_config = {
   name: 'default',
-  user: 'wfo_app_datareader',
-  password: 'GJ=5eEDYfZab7!RT',
-  host: '172.16.224.184',
-  database: 'EmployeeServices'
+  user: process.env.DB_UN,
+  password: process.env.DB_PW,
+  host: process.env.DB_SERVER,
+  database: process.env.DB_NAME
 }
-sql.setDefault(db_config)
 
 var default_queries = {
   get_distinct_qpa_solutions: 'EmployeeServices.dbo.get_distinct_QPA_solutions',
