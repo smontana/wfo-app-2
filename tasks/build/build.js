@@ -40,8 +40,7 @@ var global_data = {
   Supervisors: sql_data['Supervisors'],
   Agents: sql_data['Agents']
 }
-var jsonfile = require('jsonfile')
-var file_to_write = './tmp/data.json'
+var locals_data_file = './tmp/data.json'
 
 // -------------------------------------
 // Tasks
@@ -70,15 +69,10 @@ gulp.task('clean', function () {
 // })
 
 var set_globals = function () {
-  console.log(global_data)
   return global_data
 }
 
-gulp.task('set_globals', ['clean'], function (cb) {
-  fs.writeFile(file_to_write, JSON.stringify(global_data), {}, function (err) {
-    cb(err)
-  })
-})
+gulp.task('set_globals', ['clean'], set_globals)
 
 // -------------------------------------
 
@@ -122,10 +116,7 @@ var indexTask = function buildHTML () {
     }))
     .pipe(plumber())
     .pipe(data(function (file) {
-      // return JSON.parse(
-      // fs.readFileSync(file_to_write)
-      // )
-      return global_data
+      return JSON.parse(fs.readFileSync(locals_data_file))
     }))
     .pipe(pug({
       pretty: true,

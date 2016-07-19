@@ -118,23 +118,40 @@ function console_log_this_shit (id) {
   return deferred.promise
 }
 
+function write_to_file (id) {
+  var deferred = Q.defer()
+
+  var jsonfile = require('jsonfile')
+  var file_to_write = './tmp/data.json'
+
+  jsonfile.writeFile(file_to_write, sql_data, {spaces: 2}, function (err) {
+    console.error(err)
+  })
+
+  deferred.resolve(6)
+  return deferred.promise
+}
+
 function export_the_goods (id) {
   var deferred = Q.defer()
-  console.log('STEP 5: Exporting sql_data Object')
+  console.log('STEP 7: Exporting sql_data Object')
 
   var sql_data_json = JSON.stringify(sql_data)
-  module.exports = sql_data_json
 
-  console.log('STEP 5: COMPLETED - sql_data Object Exported')
-  deferred.resolve(6)
+  module.exports = sql_data
+
+  console.log('STEP 7: COMPLETED - sql_data Object Exported')
+  deferred.resolve(7)
   return deferred.promise
 }
 
 function check_the_exported_goods (id) {
   var deferred = Q.defer()
+
   console.log('MODULE.EXPORTS[Supervisors]: ' + module.exports['Supervisors'])
   console.log('-------DONE-------')
-  deferred.resolve(7)
+
+  deferred.resolve(8)
   return deferred.promise
 }
 
@@ -156,6 +173,9 @@ resultPromise = resultPromise.then(function () {
     })
     .then(function (id) {
       return console_log_this_shit(id)
+    })
+    .then(function (id) {
+      return write_to_file(id)
     })
     .then(function (id) {
       return export_the_goods(id)
