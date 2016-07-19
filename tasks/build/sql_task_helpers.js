@@ -47,21 +47,6 @@ function get_all_solutions (id) {
   }).then(function (data) {
     Solutions_arr = data
 
-    Solutions_arr.sort(function (a, b) {
-      var solution_A = a.Solution.toUpperCase()
-      var solution_B = b.Solution.toUpperCase()
-
-      if (solution_A < solution_B) {
-        return -1
-      }
-
-      if (solution_A > solution_B) {
-        return 1
-      }
-
-      return 0
-    })
-
     console.log('STEP 1: COMPLETED Solutions Query')
     deferred.resolve(1)
   }, function (err) {
@@ -81,21 +66,6 @@ function get_all_supervisors (id) {
   }).then(function (data) {
     Supervisors_arr = data
 
-    Supervisors_arr.sort(function (a, b) {
-      var supervisor_A = a.SolutionSupervisor.toUpperCase()
-      var supervisor_B = b.SolutionSupervisor.toUpperCase()
-
-      if (supervisor_A < supervisor_B) {
-        return -1
-      }
-
-      if (supervisor_A > supervisor_B) {
-        return 1
-      }
-
-      return 0
-    })
-
     console.log('STEP 2: COMPLETED Supervisors Query')
     deferred.resolve(2)
   }, function (err) {
@@ -114,21 +84,6 @@ function get_all_agents (id) {
     query: 'EmployeeServices.dbo.get_distinct_QPA_agents'
   }).then(function (data) {
     Agents_arr = data
-
-    Agents_arr.sort(function (a, b) {
-      var agent_A = a.Agent.toUpperCase()
-      var agent_B = b.Agent.toUpperCase()
-
-      if (agent_A < agent_B) {
-        return -1
-      }
-
-      if (agent_A > agent_B) {
-        return 1
-      }
-
-      return 0
-    })
 
     console.log('STEP 3: COMPLETED Agents Query')
     deferred.resolve(3)
