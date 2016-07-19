@@ -26,13 +26,11 @@ mixin get_qpa_custom_dates_solution_report(placeholder)
               ='Supervisor   '
               select(name="qpa_supervisor_selection" id="qpa_supervisor_select" placeholder="Supervisor" data-value="").form-control
                 option(value="" disabled selected)="Supervisor"
-
-                case Supervisors
-                  when undefined || null
-                    option(value="SupesNotLoaded")= 'SupesNotLoaded'
-                  when !(undefined || null)
-                    each supe in Supervisors
-                      option(value=supe.solution_supervisor)= supe.solution_supervisor
+                  //- - var Supervisors = data.Supervisors
+                  //-for supe in Supervisors
+                    option(value=supe.solution_supervisor)= i + ' ' + supe.solution_supervisor
+                  //-else
+                    option(value='NA') NO SUPES
 
           .form-submit
             button#qpa_solution_cutom_dates_form_submit.btn.btn-large.btn-primary(type="submit")
