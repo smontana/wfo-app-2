@@ -4,14 +4,6 @@ var _ = require('lodash')
 var Q = require('q')
 var env = process.env.ENV
 
-// var db_config = {
-//   name: 'default',
-//   user: 'wfo_app_datareader',
-//   password: 'GJ=5eEDYfZab7!RT',
-//   host: '172.16.224.184',
-//   database: 'EmployeeServices'
-// }
-
 var db_config = {
   name: 'default',
   user: process.env.DB_UN,
@@ -144,8 +136,6 @@ function write_to_file (id) {
 function export_the_goods (id) {
   var deferred = Q.defer()
   console.log('STEP 7: Exporting sql_data Object')
-
-  var sql_data_json = JSON.stringify(sql_data)
 
   module.exports = sql_data
 
