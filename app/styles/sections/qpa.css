@@ -214,6 +214,12 @@
   padding: 1em;
 }
 
+#qpa_team_pick_custom_dates_form .form-group {
+  display: flex;
+  overflow: hidden;
+  padding: 1em;
+}
+
 .qpa-date-selection {
   display: flex;
   flex-direction: column;
@@ -261,6 +267,16 @@
 }
 
 #qpa_solution_pick_custom_dates_form .form-submit {
+  display: flex;
+  overflow: hidden;
+  padding: 1em;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#qpa_team_pick_custom_dates_form .form-submit {
   display: flex;
   overflow: hidden;
   padding: 1em;
