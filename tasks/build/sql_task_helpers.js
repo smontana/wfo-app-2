@@ -144,7 +144,7 @@ function export_the_goods (id) {
 function check_the_exported_goods (id) {
   var deferred = Q.defer()
 
-  console.log('MODULE.EXPORTS[Supervisors]: ' + module.exports['Supervisors'])
+  // console.log('MODULE.EXPORTS[Supervisors]: ' + module.exports['Supervisors'])
   console.log('-------DONE-------')
 
   deferred.resolve(8)

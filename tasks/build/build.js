@@ -53,20 +53,6 @@ gulp.task('clean', function () {
 // -------------------------------------
 // Get Global Data & write to file
 // -------------------------------------
-// gulp.task('get_globals', ['clean'], function (cb, err) {
-//   if (err) {
-//     cb(err)
-//   } else {
-//     console.log('global_data: ' + global_data)
-//     cb(global_data)
-//   }
-// })
-
-// gulp.task('set_globals', ['clean'], function (cb) {
-//   fs.writeFile(file_to_write, JSON.stringify(global_data), {}, function (err) {
-//     cb(err)
-//   })
-// })
 
 var set_globals = function () {
   return global_data
